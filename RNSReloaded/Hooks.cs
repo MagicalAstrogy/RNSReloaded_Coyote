@@ -94,7 +94,7 @@ public unsafe class Hooks : IDisposable {
     private RValue* ProtobuildDetour(CInstance* self, CInstance* other, RValue* returnValue, int argc, RValue** argv) {
         RValue global = IRNSReloaded.Instance.GetGlobalInstance();
         var current = global["onlineVersion"];
-        const int separator = 10000;
+        const int separator = 0;
         if (current->Real <= separator) current->Real += separator;
 
         returnValue = this.protobuildHook!.OriginalFunction(self, other, returnValue, argc, argv);
